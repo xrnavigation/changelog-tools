@@ -1,0 +1,20 @@
+name: Changelog note check
+description: Require a valid new .changelog note on a pull request that changes product files.
+inputs:
+  base:
+    description: The pull request's base commit.
+    required: true
+  head:
+    description: The pull request's head commit.
+    required: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '22.x'
+    - shell: bash
+      env:
+        BASE_SHA: ${{ inputs.base }}
+        HEAD_SHA: ${{ inputs.head }}
+      run: node "$GITHUB_ACTION_PATH/check-changelog-note.mjs" "$BASE_SHA" "$HEAD_SHA"

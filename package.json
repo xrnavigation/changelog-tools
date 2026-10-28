@@ -1,0 +1,22 @@
+{
+	"name": "changelog-tools",
+	"version": "1.0.0",
+	"private": true,
+	"description": "The changelog note helper and checker shared by the Audiom repositories.",
+	"type": "module",
+	"bin": {
+		"changelog-note": "changelog-note.mjs",
+		"check-changelog-note": "check-changelog-note.mjs"
+	},
+	"exports": {
+		"./changelog-note.mjs": "./changelog-note.mjs",
+		"./check-changelog-note.mjs": "./check-changelog-note.mjs"
+	},
+	"files": ["changelog-note.mjs", "check-changelog-note.mjs"],
+	"scripts": {
+		"test": "node --test"
+	},
+	"engines": {
+		"node": ">=22"
+	}
+}
